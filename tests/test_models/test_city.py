@@ -33,6 +33,7 @@ class test_City(test_basemodel):
         result = style.check_files(["models/amenity.py"])
         self.assertEqual(result.total_errors, 0, "Fix pep8")
 
+
 class TestCity(unittest.TestCase):
     """this will test the city class X"""
 

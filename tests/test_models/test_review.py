@@ -32,8 +32,10 @@ class TestReview(unittest.TestCase):
         cls.state = State(name="California")
         cls.city = City(name="San Francisco", state_id=cls.state.id)
         cls.user = User(email="poppy@holberton.com", password="betty98")
-        cls.place = Place(city_id=cls.city.id, user_id=cls.user.id, name="Betty")
-        cls.review = Review(text="stellar", place_id=cls.place.id, user_id=cls.user.id)
+        cls.place = Place(city_id=cls.city.id, user_id=cls.user.id,
+                          name="Betty")
+        cls.review = Review(text="stellar", place_id=cls.place.id,
+                            user_id=cls.user.id)
 
         if type(models.storage) == DBStorage:
             models.storage.reload()
@@ -109,8 +111,10 @@ class TestReview(unittest.TestCase):
         s = str(self.review)
         self.assertIn("[Review] ({})".format(self.review.id), s)
         self.assertIn("'id': '{}'".format(self.review.id), s)
-        self.assertIn("'created_at': {}".format(repr(self.review.created_at)), s)
-        self.assertIn("'updated_at': {}".format(repr(self.review.updated_at)), s)
+        self.assertIn("'created_at': {}".format(repr(self.review.created_at)),
+                      s)
+        self.assertIn("'updated_at': {}".format(repr(self.review.updated_at)),
+                      s)
         self.assertIn("'text': '{}'".format(self.review.text), s)
         self.assertIn("'place_id': '{}'".format(self.review.place_id), s)
         self.assertIn("'user_id': '{}'".format(self.review.user_id), s)
@@ -136,8 +140,10 @@ class TestReview(unittest.TestCase):
         self.assertEqual(dict, type(review_dict))
         self.assertEqual(self.review.id, review_dict["id"])
         self.assertEqual("Review", review_dict["__class__"])
-        self.assertEqual(self.review.created_at.isoformat(), review_dict["created_at"])
-        self.assertEqual(self.review.updated_at.isoformat(), review_dict["updated_at"])
+        self.assertEqual(self.review.created_at.isoformat(),
+                         review_dict["created_at"])
+        self.assertEqual(self.review.updated_at.isoformat(),
+                         review_dict["updated_at"])
         self.assertEqual(self.review.text, review_dict["text"])
         self.assertEqual(self.review.place_id, review_dict["place_id"])
         self.assertEqual(self.review.user_id, review_dict["user_id"])
