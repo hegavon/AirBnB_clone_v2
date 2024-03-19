@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" """
+"""Defines unnittests for models/base_model.py."""
 import inspect
 from models.base_model import BaseModel
 import unittest
@@ -22,6 +22,16 @@ class test_basemodel(unittest.TestCase):
         super().__init__(*args, **kwargs)
         self.name = 'BaseModel'
         self.value = BaseModel
+    """
+    A class to test pep8 on base_model file"""
+    def test_pycodestyle(self):
+        """
+        Test pep8 format
+        """
+        pycostyle = StyleGuide(quiet=True)
+        result = pycostyle.check_files(['models/base_model.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
 
     def setUp(self):
         """ """
@@ -30,8 +40,8 @@ class test_basemodel(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove('file.json')
-        except:
-            pass
+        except FileNotFoundError:
+            pass  # File might not exist, no need to raise an error
 
     def test_default(self):
         """ """
@@ -99,18 +109,6 @@ class test_basemodel(unittest.TestCase):
         new = BaseModel(**n)
         self.assertFalse(new.created_at == new.updated_at)
 
-    """
-    A class to test pep8 on base_model file
-    """
-    def test_pycodestyle(self):
-        """
-        Test pep8 format
-        """
-        pycostyle = StyleGuide(quiet=True)
-        result = pycostyle.check_files(['models/base_model.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
     def test_uuid(self):
         """
         Testin UUID
@@ -138,8 +136,7 @@ class test_basemodel(unittest.TestCase):
 
 class TestCodeFormat(unittest.TestCase):
     """
-    A class to test pep8 on base_model file
-    """
+    A class to test pep8 on base_model file"""
     def test_pycodestyle(self):
         """
         Test pep8 format
