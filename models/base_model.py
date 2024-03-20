@@ -1,4 +1,3 @@
-base_model.py
 #!/usr/bin/python3
 """This is the base model class for AirBnB"""
 from sqlalchemy.ext.declarative import declarative_base
