@@ -6,7 +6,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from models.place import Place
 from models.review import Review
-
+from os import getenv
 
 class User(BaseModel, Base):
     """This is the class for user
