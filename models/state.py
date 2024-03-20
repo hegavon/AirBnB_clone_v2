@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """Defines the State class."""
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
 from os import getenv
 import models
-
 
 class State(BaseModel, Base):
     """Represents a state."""
