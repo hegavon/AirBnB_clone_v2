@@ -83,4 +83,3 @@ class Place(BaseModel, Base):
 
             if amenity:
                 self.amenity_ids.append(amenity.id)
-
