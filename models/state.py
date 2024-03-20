@@ -6,6 +6,7 @@ from models.base_model import BaseModel, Base
 from os import getenv
 import models
 
+
 class State(BaseModel, Base):
     """Represents a state."""
 
