@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """Defines the State class."""
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
 from os import getenv
 import models
-
 
 class State(BaseModel, Base):
     """Represents a state."""
@@ -13,11 +12,7 @@ class State(BaseModel, Base):
     __tablename__ = "states"
 
     name = Column(String(128), nullable=False)
-    cities = relationship(
-        "City",
-        cascade="all, delete-orphan",
-        backref="state"
-    )
+    cities = relationship("City", cascade="all, delete-orphan", backref="state")
 
     if getenv("HBNB_TYPE_STORAGE") != "db":
         @property
