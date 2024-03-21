@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """This is model defines a class user"""
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
+
 
 class User(BaseModel, Base):
     """Represents a user in the system."""
@@ -14,8 +15,16 @@ class User(BaseModel, Base):
     first_name = Column(String(128))
     last_name = Column(String(128))
 
-    places = relationship("Place", cascade="all, delete-orphan", backref="user")
-    reviews = relationship("Review", cascade="all, delete-orphan", backref="user")
+    places = relationship(
+        "Place",
+        cascade="all, delete-orphan",
+        backref="user"
+    )
+    reviews = relationship(
+        "Review",
+        cascade="all, delete-orphan",
+        backref="user"
+    )
 
     def __init__(self, *args, **kwargs):
         """Initializes a user."""

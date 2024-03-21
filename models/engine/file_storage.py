@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+""" New class for SQLAlchemy """
 import json
-import shlex
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -12,8 +12,7 @@ from models.review import Review
 
 class FileStorage:
     """This class serializes instances to a JSON file and
-    deserializes JSON file to instances
-    """
+    deserializes JSON file to instances"""
 
     __file_path = "file.json"
     __objects = {}
@@ -32,7 +31,9 @@ class FileStorage:
 
     def save(self):
         """Serializes objects to JSON file"""
-        serialized = {key: obj.to_dict() for key, obj in self.__objects.items()}
+        serialized = {
+            key: obj.to_dict() for key, obj in self.__objects.items()
+        }
         with open(self.__file_path, 'w', encoding="UTF-8") as f:
             json.dump(serialized, f)
 
