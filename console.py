@@ -76,5 +76,6 @@ class HBNBCommand(cmd.Cmd):
 
     # Define other methods (show, destroy, all, count, update) similarly
 
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
