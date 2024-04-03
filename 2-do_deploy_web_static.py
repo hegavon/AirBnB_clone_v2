@@ -7,7 +7,7 @@ from fabric.api import *
 from os.path import exists
 from fabric.exceptions import NetworkError
 
-env.hosts = ['<IP web-01>', '<IP web-02>']
+env.hosts = ['54.160.73.250', '52.90.22.193']
 env.user = 'ubuntu'
 env.key_filename = ['my_ssh_private_key']
 
