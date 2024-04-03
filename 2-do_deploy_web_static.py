@@ -9,7 +9,7 @@ from fabric.exceptions import NetworkError
 
 env.hosts = ['54.160.73.250', '52.90.22.193']
 env.user = 'ubuntu'
-env.key_filename = ['my_ssh_private_key']
+env.key_filename = ['~/.ssh/id_rsa']
 
 
 def do_deploy(archive_path):
