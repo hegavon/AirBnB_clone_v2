@@ -12,7 +12,7 @@ echo "<html>
   <body>
     Holberton School
   </body>
-</html>" | sudo tee /data/web_static/releases/test/index.html
+</html>" > /data/web_static/releases/test/index.html
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 sudo chown -R ubuntu /data
