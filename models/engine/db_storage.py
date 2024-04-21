@@ -16,6 +16,7 @@ from sqlalchemy.orm import sessionmaker
 import sqlalchemy
 import models
 
+
 class DBStorage:
     """Represents a database storage engine.
 
